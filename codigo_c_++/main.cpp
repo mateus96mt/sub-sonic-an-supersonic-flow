@@ -147,12 +147,12 @@ void solver(double *dominiox, int n, double nt, double lambda, double courant, d
         //contorno no ponto 1 (indice 0):
         p[0] = 1.0;
         T[0] = 1.0;
-        V[0] = (2 * V[1] - V[2]);
+        V[0] = ((2 * V[1]) - V[2]);
 
         //contorno no ponto N (indice n-1):
-        V[n - 1] = (2 * V[n - 2] - V[n - 3]);
-        p[n - 1] = (2 * p[n - 2] - p[n - 3]);
-        T[n - 1] = (2 * T[n - 2] - T[n - 3]);
+        V[n - 1] = ((2 * V[n - 2]) - V[n - 3]);
+        p[n - 1] = ((2 * p[n - 2]) - p[n - 3]);
+        T[n - 1] = ((2 * T[n - 2]) - T[n - 3]);
 
         delete[] dpdt_t;
         delete[] dVdt_t;
@@ -182,5 +182,6 @@ int main() {
     dt = 2.94e-3;
 
     solver(dominiox, n, nt, lambda, courant, dx, dt);
+
     return 0;
 }
